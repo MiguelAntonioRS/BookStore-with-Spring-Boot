@@ -50,3 +50,14 @@ git clone https://github.com/MiguelAntonioRS/BookStore-with-Spring-Boot.git
     spring.datasource.username=tu_usuario
     spring.datasource.password=tu_contraseña
     spring.jpa.hibernate.ddl-auto=update
+
+### Construir y Ejecutar la Aplicación
+
+   1. Construir el proyecto:
+      ```bash
+      mvn clean install
+      ```
+   2. Ejecutar la aplicación:
+      ```bash
+      mvn spring-boot:run
+      ```   
