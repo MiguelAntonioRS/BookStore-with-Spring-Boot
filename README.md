@@ -40,4 +40,13 @@ Este proyecto es una aplicación web para gestionar una tienda de libros. Permit
 
 ```bash
 git clone https://github.com/MiguelAntonioRS/BookStore-with-Spring-Boot.git
+```
+### Configuración de la Base de Datos
 
+    Crea una base de datos en MySQL llamada bookstore.
+    Configura el archivo src/main/resources/application.properties con tus credenciales de base de datos:
+
+    spring.datasource.url=jdbc:mysql://localhost:3306/bookstore
+    spring.datasource.username=tu_usuario
+    spring.datasource.password=tu_contraseña
+    spring.jpa.hibernate.ddl-auto=update
