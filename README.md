@@ -4,7 +4,7 @@ Este proyecto es una aplicación web para gestionar una tienda de libros. Permit
 
 ## Estructura del Proyecto 
 
-### 1. **Controladores**
+### 1. **Controladores** 
 - **`BookController`**: Maneja las operaciones CRUD para los libros disponibles.
 - **`MyBookListController`**: Gestiona la lista de libros personales del usuario.
 
