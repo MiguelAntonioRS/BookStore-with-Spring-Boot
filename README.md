@@ -1,6 +1,6 @@
 # Sistema de Gestión de Libros
 
-Este proyecto es una aplicación web para gestionar una tienda de libros. Permite registrar, listar, editar y eliminar libros, así como gestionar una lista personal de libros del usuario. La aplicación está construida utilizando Spring Boot para el backend y Thymeleaf para el frontend. 
+Este proyecto es una aplicación web para gestionar una tienda de libros. Permite registrar, listar, editar y eliminar libros, así como gestionar una lista personal de libros del usuario. La aplicación está construida utilizando Spring Boot para el backend y Thymeleaf para el frontend.
 
 ## Estructura del Proyecto
  
