@@ -16,7 +16,7 @@ Este proyecto es una aplicación web para gestionar una tienda de libros. Permit
 - **`BookRepository`**: Interfaz para la persistencia de datos de libros.  
 - **`MyBookRepository`**: Interfaz para la persistencia de datos de la lista de libros del usuario.
 
-### 4. **Entidades**
+### 4. **Entidades** 
 - **`BookEntity`**: Representa un libro en la base de datos.
 - **`MyBookListEntity`**: Representa un libro en la lista personal del usuario.
 
