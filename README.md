@@ -13,7 +13,7 @@ Este proyecto es una aplicación web para gestionar una tienda de libros. Permit
 - **`MyBookListService`**: Proporciona la lógica de negocio para la lista de libros del usuario. 
  
 ### 3. **Repositorios**
-- **`BookRepository`**: Interfaz para la persistencia de datos de libros.  
+- **`BookRepository`**: Interfaz para la persistencia de datos de libros.
 - **`MyBookRepository`**: Interfaz para la persistencia de datos de la lista de libros del usuario.
 
 ### 4. **Entidades**
