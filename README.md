@@ -1,45 +1,59 @@
-# Book Store Management System
+# 📘 Book Store Management System
 
-This project is a web application designed to manage a book store. It allows users to register, list, edit, and delete books, as well as manage a personal list of books. The application is built using **Spring Boot** for the backend and **Thymeleaf** for the frontend.
+A simple and intuitive web application built with **Spring Boot** and **Thymeleaf** for managing a bookstore. Users can register, view, edit, and delete books, as well as maintain a personal list of favorite or owned books.
 
-## Project Structure
+---
 
-### 1. **Controllers**
-- **`BookController`**: Handles CRUD operations for available books.
-- **`MyBookListController`**: Manages the user's personal list of books.
+## 🧩 Features
 
-### 2. **Services**
-- **`BookService`**: Provides business logic for book management.
-- **`MyBookListService`**: Provides business logic for managing the user's personal book list.
+- ✅ **CRUD operations** for books.
+- 📚 Manage a **personal book list**.
+- 🛠️ Built using **Spring Boot** (backend) and **Thymeleaf** (frontend).
+- 🗄️ Supports **MySQL** or any compatible database.
+- 💡 Easy to set up and run locally.
 
-### 3. **Repositories**
-- **`BookRepository`**: Interface for book data persistence.
-- **`MyBookRepository`**: Interface for personal book list data persistence.
+---
 
-### 4. **Entities**
-- **`BookEntity`**: Represents a book in the database.
-- **`MyBookListEntity`**: Represents a book in the user's personal list.
+## 🏗️ Project Architecture
 
-### 5. **Views (HTML Templates)**
-- **`bookRegister.html`**: Form to register a new book.
-- **`bookList.html`**: View to list all available books.
-- **`myBooks.html`**: View to list books in the user's personal collection.
-- **`bookEdit.html`**: Form to edit an existing book.
+### 🔧 Controllers
+- `BookController`: Handles requests for managing available books.
+- `MyBookListController`: Manages the user's personal book list.
 
-### 6. **Main Configuration**
-- **`BookStoreApplication`**: Main Spring Boot configuration class.
+### 🧠 Services
+- `BookService`: Business logic for book operations.
+- `MyBookListService`: Business logic for personal book list operations.
 
-## How to Run the Project
+### 🗃️ Repositories
+- `BookRepository`: Interface for interacting with the books table.
+- `MyBookRepository`: Interface for interacting with the personal book list table.
+
+### 📦 Entities
+- `BookEntity`: Represents a book in the database.
+- `MyBookListEntity`: Represents a book in the user’s personal collection.
+
+### 🖼️ Views (HTML Templates)
+- `bookRegister.html`: Form to add a new book.
+- `bookList.html`: Displays all available books.
+- `myBooks.html`: Displays the user's personal book list.
+- `bookEdit.html`: Form to edit an existing book.
+
+### ⚙️ Configuration
+- `BookStoreApplication.java`: Main Spring Boot configuration class.
+
+---
+
+## 🚀 How to Run the Project
 
 ### Prerequisites
 - Java 17 or higher
 - Maven
-- MySQL (or another compatible database system)
+- MySQL (or another compatible database)
 
 ### Clone the Repository
-
 ```bash
-git clone https://github.com/MiguelAntonioRS/BookStore-with-Spring-Boot.git
+git clone https://github.com/MiguelAntonioRS/BookStore-with-Spring-Boot.git 
+cd BookStore-with-Spring-Boot
 ```
 
 ### Database Setup
