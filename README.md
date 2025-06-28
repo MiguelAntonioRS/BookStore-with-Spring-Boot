@@ -12,7 +12,7 @@ A simple and intuitive web application built with **Spring Boot** and **Thymelea
 - 🗄️ Supports **MySQL** or any compatible database.
 - 💡 Easy to set up and run locally.
 
----
+--- 
 
 ## 🏗️ Project Architecture
 
