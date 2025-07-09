@@ -4,7 +4,7 @@ A simple and intuitive web application built with **Spring Boot** and **Thymelea
 
 ---
 
-## 🧩 Features
+## 🧩 Features 
 
 - ✅ **CRUD operations** for books.
 - 📚 Manage a **personal book list**.
