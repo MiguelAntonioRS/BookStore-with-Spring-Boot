@@ -13,7 +13,7 @@ A simple and intuitive web application built with **Spring Boot** and **Thymelea
 - 💡 Easy to set up and run locally.
 
 ---
-
+ 
 ## 🏗️ Project Architecture
 
 ### 🔧 Controllers
