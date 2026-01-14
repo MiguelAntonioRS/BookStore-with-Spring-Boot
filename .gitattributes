@@ -1,0 +1,15 @@
+/mvnw text eol=lf
+*.cmd text eol=crlf
+
+# Ignorar plantillas Thymeleaf (no son código fuente lógico)
+src/main/resources/templates/*.html linguist-vendored=true
+
+# Ignorar imágenes y assets binarios (no deben contarse como código)
+src/main/resources/static/img/** linguist-vendored=true
+src/main/resources/static/images/** linguist-vendored=true
+*.png linguist-vendored=true
+*.jpg linguist-vendored=true
+*.jpeg linguist-vendored=true
+*.gif linguist-vendored=true
+*.svg linguist-vendored=true
+*.ico linguist-vendored=true
