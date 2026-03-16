@@ -16,6 +16,7 @@ A simple and intuitive web application built with **Spring Boot** and **Thymelea
  
 ## 🏗️ Project Architecture
 
+
 ### 🔧 Controllers
 - `BookController`: Handles requests for managing available books.
 - `MyBookListController`: Manages the user's personal book list.
