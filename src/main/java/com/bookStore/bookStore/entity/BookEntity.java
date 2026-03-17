@@ -17,6 +17,8 @@ public class BookEntity {
     private String author;
     private String price;
 
+    private String year;
+
     public BookEntity() { // Constructor vacio
     }
 
