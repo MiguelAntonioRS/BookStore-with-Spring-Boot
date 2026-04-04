@@ -8,7 +8,7 @@ A simple and intuitive web application built with **Spring Boot** and **Thymelea
 
 - ✅ **CRUD operations** for books.
 - 📚 Manage a **personal book list**.
-- 🛠️ Built using **Spring Boot** (backend) and **Thymeleaf** (frontend).
+- 🛠️ Built using **Spring Boot** (backend) and **Thymeleaf** (frontend). 
 - 🗄️ Supports **MySQL** or any compatible database.
 - 💡 Easy to set up and run locally.
 
