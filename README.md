@@ -1,6 +1,6 @@
 # 📘 Book Store Management System 
  
-A simple and intuitive web application built with **Spring Boot** and **Thymeleaf** for managing a bookstore. Users can register, view, edit, and delete books, as well as maintain a personal list of favorite or owned books.
+A simple and intuitive web application built with **Spring Boot** and **Thymeleaf** for managing a bookstore. Users can register, view, edit, and delete books, as well as maintain a personal list of favorite or owned books. 
 
 ---
 
