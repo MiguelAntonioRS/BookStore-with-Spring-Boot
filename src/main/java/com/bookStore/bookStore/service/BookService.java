@@ -1,19 +1,23 @@
 package com.bookStore.bookStore.service;
 
 import com.bookStore.bookStore.entity.BookEntity;
+import com.bookStore.bookStore.exception.ResourceNotFoundException;
 import com.bookStore.bookStore.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
-    public void save(BookEntity book) {
-        bookRepository.save(book);
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public BookEntity save(BookEntity book) {
+        return bookRepository.save(book);
     }
 
     public List<BookEntity> getAllBook() {
@@ -21,7 +25,11 @@ public class BookService {
     }
 
     public BookEntity getBookById(int id) {
-        return bookRepository.findById(id).get();
+        Optional<BookEntity> book = bookRepository.findById(id);
+        if (book.isEmpty()) {
+            throw new ResourceNotFoundException("Book not found with id: " + id);
+        }
+        return book.get();
     }
 
     public void deleteById(int id) {
