@@ -45,20 +45,29 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/",
-                    "/book_register",
-                    "/available_books",
-                    "/my_books",
+                    "/login",
+                    "/register",
                     "/api/v1/auth/**",
                     "/swagger-ui/**",
                     "/swagger-ui.html",
                     "/api-docs/**",
                     "/v3/api-docs/**",
-                    "/h2-console/**"
+                    "/h2-console/**",
+                    "/available_books",
+                    "/book_register",
+                    "/my_books",
+                    "/bookList",
+                    "/bookEdit",
+                    "/images/**"
                 ).permitAll()
                 .requestMatchers("/save", "/deleteBook/**", "/mylist/**", "/deleteMyList/**", "/editBook/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .formLogin(form -> form
+                .loginProcessingUrl("/api/v1/auth/login")
+                .permitAll()
+            )
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .headers(headers -> headers.frameOptions(frame -> frame.disable()));
