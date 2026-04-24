@@ -58,7 +58,7 @@ public class BookController {
     @RequestMapping("/mylist/{id}")
     public String getMyList(@PathVariable("id") int id) {
         BookEntity book = bookService.getBookById(id);
-        MyBookListEntity bookListService = new MyBookListEntity(book.getId(),book.getName(),book.getAuthor(),book.getPrice());
+        MyBookListEntity bookListService = new MyBookListEntity(book.getId(),book.getName(),book.getAuthor(),book.getPrice().toString());
         myBookListService.saveMyBooks(bookListService);
         return "redirect:/my_books";
     }
