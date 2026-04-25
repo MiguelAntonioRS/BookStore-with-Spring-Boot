@@ -31,8 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 true,
                 true,
                 user.isAccountNonLocked(),
-                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + 
-                        (user.getRole() != null ? user.getRole().getName() : "USER")))
+                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
         );
     }
 }
