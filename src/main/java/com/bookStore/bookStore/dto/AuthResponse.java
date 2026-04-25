@@ -17,7 +17,7 @@ public class AuthResponse {
         this.userId = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
-        this.role = user.getRole() != null ? user.getRole().getName() : "USER";
+        this.role = user.getRole() != null ? user.getRole() : "USER";
     }
 
     public String getToken() {
