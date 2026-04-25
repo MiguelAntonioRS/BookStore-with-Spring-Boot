@@ -2,8 +2,6 @@ package com.bookStore.bookStore.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -31,11 +29,8 @@ public class User {
     @Column(nullable = false)
     private boolean accountNonLocked = true;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Role role;
+    @Column(nullable = false)
+    private String role = "USER";
 
     private LocalDateTime createdAt;
     private LocalDateTime lastLogin;
@@ -117,11 +112,11 @@ public class User {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
