@@ -3,9 +3,7 @@ package com.bookStore.bookStore.controller;
 import com.bookStore.bookStore.dto.AuthResponse;
 import com.bookStore.bookStore.dto.LoginRequest;
 import com.bookStore.bookStore.dto.RegisterRequest;
-import com.bookStore.bookStore.entity.Role;
 import com.bookStore.bookStore.entity.User;
-import com.bookStore.bookStore.repository.RoleRepository;
 import com.bookStore.bookStore.repository.UserRepository;
 import com.bookStore.bookStore.security.JwtService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,19 +33,16 @@ import java.util.Map;
 public class AuthController {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     public AuthController(
             UserRepository userRepository,
-            RoleRepository roleRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
             AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
@@ -68,17 +63,10 @@ public class AuthController {
                     .body(createErrorResponse("Email already exists"));
         }
 
-        Role userRole = roleRepository.findByName("USER")
-                .orElseGet(() -> {
-                    Role role = new Role("USER");
-                    role.setDescription("Regular user with read access");
-                    return roleRepository.save(role);
-                });
-
         User user = new User(request.getUsername(), request.getEmail(), passwordEncoder.encode(request.getPassword()));
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
-        user.setRole(userRole);
+        user.setRole("USER");
 
         userRepository.save(user);
 
