@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -62,19 +61,19 @@ public class SecurityConfig {
                     "/my_books",
                     "/bookList",
                     "/bookEdit",
-                    "/images/**"
+                    "/images/**",
+                    "/save",
+                    "/deleteBook/**",
+                    "/mylist/**",
+                    "/deleteMyList/**",
+                    "/editBook/**"
                 ).permitAll()
-                .requestMatchers("/save", "/deleteBook/**", "/mylist/**", "/deleteMyList/**", "/editBook/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
-            .formLogin(form -> form
-                .loginProcessingUrl("/api/v1/auth/login")
-                .permitAll()
+            .sessionManagement(session -> session
+                .maximumSessions(1)
             )
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-            .authenticationProvider(authenticationProvider())
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-            .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+            .authenticationProvider(authenticationProvider());
 
         return http.build();
     }
