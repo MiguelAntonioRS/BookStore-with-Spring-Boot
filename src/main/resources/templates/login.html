@@ -77,6 +77,11 @@
                         Has cerrado sesión exitosamente.
                     </div>
                     
+                    <div th:if="${param.registered}" class="alert alert-success" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        ¡Cuenta creada! Ahora puedes iniciar sesión.
+                    </div>
+                    
                     <form th:action="@{/login/submit}" method="post">
                         <div class="mb-4">
                             <label class="form-label fw-semibold">
