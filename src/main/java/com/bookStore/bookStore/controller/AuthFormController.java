@@ -58,6 +58,8 @@ public class AuthFormController {
             session.setAttribute("token", token);
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userId", user.getId());
+            
+            logger.info("Usuario logueado: {}, session username: {}", user.getUsername(), session.getAttribute("username"));
 
             return "redirect:/?loggedIn=true";
         } catch (BadCredentialsException e) {
