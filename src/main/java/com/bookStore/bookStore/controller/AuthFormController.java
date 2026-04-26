@@ -59,7 +59,7 @@ public class AuthFormController {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userId", user.getId());
 
-            return "redirect:/available_books";
+            return "redirect:/?loggedIn=true";
         } catch (BadCredentialsException e) {
             model.addAttribute("error", "Usuario o contraseña incorrectos");
             return "login";
