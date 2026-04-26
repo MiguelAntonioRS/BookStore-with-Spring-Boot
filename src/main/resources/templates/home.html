@@ -38,6 +38,14 @@
   <body>
     <div th:replace="~{fragments/navbar :: navbar}"></div>
 
+    <div th:if="${param.loggedIn}" class="container mt-3">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            ¡Bienvenido de nuevo, <strong th:text="${session.username}"></strong>!
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
+
     <div class="hero-section text-center">
         <div class="container">
             <h1 class="display-4 fw-bold">BIENVENIDO A NUESTRA BIBLIOTECA</h1>
@@ -46,6 +54,15 @@
             <div class="mt-4" th:if="${session.username == null}">
                 <a href="register" class="btn btn-primary btn-lg me-2">Unirte Gratis</a>
                 <a href="login" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
+            </div>
+            <div class="mt-4" th:unless="${session.username == null}">
+                <div class="alert alert-success d-inline-block">
+                    <i class="fas fa-check-circle me-2"></i>
+                    ¡Hola, <strong th:text="${session.username}"></strong>! Bienvenido de nuevo.
+                </div>
+                <br>
+                <a href="available_books" class="btn btn-light btn-lg me-2">Ver Libros</a>
+                <a href="my_books" class="btn btn-outline-light btn-lg">Mis Libros</a>
             </div>
         </div>
     </div>
