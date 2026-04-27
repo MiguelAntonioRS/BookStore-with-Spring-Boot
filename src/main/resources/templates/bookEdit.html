@@ -1,22 +1,14 @@
 <!doctype html>
-<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <title>Biblioteca - Editar Libro</title>
+    <title>BookStore - Edit Book</title>
     <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        .form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .form-container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
     </style>
 </head>
 <body>
@@ -28,41 +20,31 @@
                 <div class="form-container">
                     <div class="text-center mb-4">
                         <i class="fas fa-edit fa-3x text-primary mb-3"></i>
-                        <h2 class="fw-bold">Editar Libro</h2>
-                        <p class="text-muted">Modifica los datos del libro</p>
+                        <h2 class="fw-bold">Edit Book</h2>
+                        <p class="text-muted">Update the book details</p>
                     </div>
                     
                     <form th:action="@{/save}" method="post" th:object="${book}">
                         <input type="hidden" name="id" th:value="${book.id}"/>
                         
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-book me-1"></i>Nombre del Libro
-                            </label>
+                            <label class="form-label fw-semibold"><i class="fas fa-book me-1"></i>Book Name</label>
                             <input type="text" class="form-control form-control-lg" name="name" th:value="${book.name}" required>
                         </div>
                         
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-user me-1"></i>Autor
-                            </label>
+                            <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>Author</label>
                             <input type="text" class="form-control form-control-lg" name="author" th:value="${book.author}" required>
                         </div>
                         
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-tag me-1"></i>Precio
-                            </label>
+                            <label class="form-label fw-semibold"><i class="fas fa-tag me-1"></i>Price</label>
                             <input type="number" step="0.01" class="form-control form-control-lg" name="price" th:value="${book.price}" required>
                         </div>
                         
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success btn-lg">
-                                <i class="fas fa-save me-2"></i>Actualizar Libro
-                            </button>
-                            <a href="available_books" class="btn btn-outline-secondary btn-lg">
-                                <i class="fas fa-arrow-left me-2"></i>Cancelar
-                            </a>
+                            <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save me-2"></i>Update Book</button>
+                            <a href="available_books" class="btn btn-outline-secondary btn-lg"><i class="fas fa-arrow-left me-2"></i>Cancel</a>
                         </div>
                     </form>
                 </div>
