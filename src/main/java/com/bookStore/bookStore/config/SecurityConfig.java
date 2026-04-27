@@ -41,6 +41,10 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(AbstractHttpConfigurer::disable)
+            .formLogin(form -> form
+                .loginPage("/login")
+                .permitAll()
+            )
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/",
@@ -66,7 +70,9 @@ public class SecurityConfig {
                     "/deleteBook/**",
                     "/mylist/**",
                     "/deleteMyList/**",
-                    "/editBook/**"
+                    "/editBook/**",
+                    "/profile",
+                    "/profile/update"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
