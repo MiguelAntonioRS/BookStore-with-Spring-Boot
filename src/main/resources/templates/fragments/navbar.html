@@ -10,7 +10,7 @@
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <i class="fas fa-book me-2"></i>Biblioteca
+                <i class="fas fa-book me-2"></i>BookStore
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
@@ -18,13 +18,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="available_books">Libros</a>
+                        <a class="nav-link" href="available_books">Books</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="my_books">Mis Libros</a>
+                        <a class="nav-link" href="my_books">My Books</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
@@ -35,17 +35,17 @@
                                 <span th:text="${session.username}"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-cog me-2"></i>Mi Perfil</a></li>
-                                <li><a class="dropdown-item" href="my_books"><i class="fas fa-bookmark me-2"></i>Mis Libros</a></li>
+                                <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-cog me-2"></i>My Profile</a></li>
+                                <li><a class="dropdown-item" href="my_books"><i class="fas fa-bookmark me-2"></i>My Books</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                             </ul>
                         </div>
                     </th:block>
                     
                     <th:block th:unless="${session.username != null}">
-                        <a href="login" class="btn btn-outline-light btn-sm me-2">Entrar</a>
-                        <a href="register" class="btn btn-primary btn-sm">Registrarse</a>
+                        <a href="login" class="btn btn-outline-light btn-sm me-2">Login</a>
+                        <a href="register" class="btn btn-primary btn-sm">Register</a>
                     </th:block>
                 </div>
             </div>
