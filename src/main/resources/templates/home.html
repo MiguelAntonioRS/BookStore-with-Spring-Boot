@@ -1,38 +1,15 @@
 <!doctype html>
-<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
-    <title>Book Store</title>
+    <title>BookStore</title>
     <style>
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            margin-bottom: 40px;
-        }
-        .quote {
-            font-style: italic;
-            font-size: 1.2em;
-            color: #f8f9fa;
-        }
-        .feature-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            border-radius: 15px;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200'); background-size: cover; background-position: center; color: white; padding: 100px 0; margin-bottom: 40px; }
+        .quote { font-style: italic; font-size: 1.2em; color: #f8f9fa; }
     </style>
   </head>
   <body>
@@ -40,29 +17,27 @@
 
     <div th:if="${param.loggedIn}" class="container mt-3">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fas fa-check-circle me-2"></i>
-            ¡Bienvenido de nuevo, <strong th:text="${session.username}"></strong>!
+            <i class="fas fa-check-circle me-2"></i>Welcome back, <strong th:text="${session.username}"></strong>!
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     </div>
 
     <div class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">BIENVENIDO A NUESTRA BIBLIOTECA</h1>
-            <p class="lead">Tu destino para descubrir grandes historias</p>
-            <p class="quote">"Un libro es un sueño que tienes en tus manos." — Neil Gaiman</p>
+            <h1 class="display-4 fw-bold">WELCOME TO OUR BOOKSTORE</h1>
+            <p class="lead">Your destination for discovering great stories</p>
+            <p class="quote">"A book is a dream that you hold in your hands." — Neil Gaiman</p>
             <div class="mt-4" th:if="${session.username == null}">
-                <a href="register" class="btn btn-primary btn-lg me-2">Unirte Gratis</a>
-                <a href="login" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
+                <a href="register" class="btn btn-primary btn-lg me-2">Join Free</a>
+                <a href="login" class="btn btn-outline-light btn-lg">Login</a>
             </div>
             <div class="mt-4" th:unless="${session.username == null}">
                 <div class="alert alert-success d-inline-block">
-                    <i class="fas fa-check-circle me-2"></i>
-                    ¡Hola, <strong th:text="${session.username}"></strong>! Bienvenido de nuevo.
+                    <i class="fas fa-check-circle me-2"></i>Hello, <strong th:text="${session.username}"></strong>! Welcome back.
                 </div>
                 <br>
-                <a href="available_books" class="btn btn-light btn-lg me-2">Ver Libros</a>
-                <a href="my_books" class="btn btn-outline-light btn-lg">Mis Libros</a>
+                <a href="available_books" class="btn btn-light btn-lg me-2">View Books</a>
+                <a href="my_books" class="btn btn-outline-light btn-lg">My Books</a>
             </div>
         </div>
     </div>
@@ -70,10 +45,10 @@
     <div class="container text-center my-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <p class="lead">¡Bienvenido a nuestra Biblioteca!</p>
-                <p>Nos alegra recibirte en nuestro rincón dedicado a los amantes de los libros. Aquí, cada página es una puerta a mundos nuevos y cada historia una aventura esperando ser descubierta.</p>
-                <p>Sumérgete entre nuestras estanterías y encuentra ese libro que te hará soñar, reflexionar y viajar sin moverte de tu lugar.</p>
-                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600" alt="Biblioteca" class="rounded shadow-lg mt-4" style="max-width: 100%; height: auto;"/>
+                <p class="lead">Welcome to our BookStore!</p>
+                <p>We're thrilled to have you in our corner dedicated to book lovers. Here, every page is a door to new worlds and every story is an adventure waiting to be discovered.</p>
+                <p>Dive into our shelves and find that book that will make you dream, reflect, and travel without leaving your spot.</p>
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600" alt="Library" class="rounded shadow-lg mt-4" style="max-width: 100%;"/>
             </div>
         </div>
     </div>
