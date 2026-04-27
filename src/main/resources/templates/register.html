@@ -1,86 +1,33 @@
 <!doctype html>
-<html lang="es" xmlns:th="https://www.thymeleaf.com">
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <title>Biblioteca - Registrarse</title>
+    <title>BookStore - Register</title>
     <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        .register-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        .btn-register {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            border: none;
-            padding: 12px;
-            font-size: 1.1em;
-        }
-        .btn-register:hover {
-            background: linear-gradient(135deg, #20c997, #28a745);
-        }
-        .is-valid {
-            border-color: #198754 !important;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(0.375em + 0.1875rem) center;
-            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-        }
-        .is-invalid {
-            border-color: #dc3545 !important;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5zM6 1v3M4.5 8.5l3 2'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(0.375em + 0.1875rem) center;
-            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-        }
-        .valid-feedback, .invalid-feedback {
-            display: block;
-            font-size: 0.875em;
-            margin-top: 0.25rem;
-        }
-        .valid-icon {
-            color: #198754;
-        }
-        .invalid-icon {
-            color: #dc3545;
-        }
-        .checking {
-            opacity: 0.5;
-        }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .register-container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+        .btn-register { background: linear-gradient(135deg, #28a745, #20c997); border: none; padding: 12px; font-size: 1.1em; }
+        .btn-register:hover { background: linear-gradient(135deg, #20c997, #28a745); }
+        .is-valid { border-color: #198754 !important; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right calc(0.375em + 0.1875rem) center; background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
+        .is-invalid { border-color: #dc3545 !important; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5zM6 1v3M4.5 8.5l3 2'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right calc(0.375em + 0.1875rem) center; background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
+        .valid-feedback, .invalid-feedback { display: block; font-size: 0.875em; margin-top: 0.25rem; }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="/">
-                <i class="fas fa-book me-2"></i>Biblioteca
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand text-white" href="/"><i class="fas fa-book me-2"></i>BookStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/"><i class="fas fa-home me-1"></i>Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="available_books"><i class="fas fa-book-open me-1"></i>Libros</a>
-                    </li>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="available_books">Books</a></li>
                 </ul>
-                <div class="d-flex">
-                    <a class="btn btn-primary me-2" href="login"><i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión</a>
-                </div>
+                <div class="d-flex"><a class="btn btn-primary me-2" href="login">Login</a></div>
             </div>
         </div>
     </nav>
@@ -91,87 +38,57 @@
                 <div class="register-container">
                     <div class="text-center mb-4">
                         <i class="fas fa-user-plus fa-3x text-success mb-3"></i>
-                        <h2 class="fw-bold">Crear Cuenta</h2>
-                        <p class="text-muted">Únete a nuestra comunidad de lectores</p>
+                        <h2 class="fw-bold">Create Account</h2>
+                        <p class="text-muted">Join our book community</p>
                     </div>
                     
-                    <div th:if="${error}" class="alert alert-danger" role="alert">
-                        <i class="fas fa-exclamation-circle me-2"></i>
-                        <span th:text="${error}"></span>
-                    </div>
-                    
-                    <div th:if="${param.registered}" class="alert alert-success" role="alert">
-                        <i class="fas fa-check-circle me-2"></i>
-                        ¡Cuenta creada exitosamente! Ya puedes iniciar sesión.
-                    </div>
+                    <div th:if="${error}" class="alert alert-danger" role="alert"><i class="fas fa-exclamation-circle me-2"></i><span th:text="${error}"></span></div>
+                    <div th:if="${param.registered}" class="alert alert-success" role="alert"><i class="fas fa-check-circle me-2"></i>Account created! You can now sign in.</div>
                     
                     <form id="registerForm" th:action="@{/register/submit}" method="post">
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-user me-1"></i>Usuario
-                            </label>
-                            <input type="text" class="form-control" id="username" name="username" 
-                                   placeholder="Nombre de usuario" required minlength="3" maxlength="50">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback"></div>
+                            <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Choose a username" required minlength="3" maxlength="50">
+                            <div class="valid-feedback"></div><div class="invalid-feedback"></div>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-envelope me-1"></i>Correo Electrónico
-                            </label>
-                            <input type="email" class="form-control" id="email" name="email" 
-                                   placeholder="tu@email.com" required>
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback"></div>
+                            <label class="form-label fw-semibold"><i class="fas fa-envelope me-1"></i>Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+                            <div class="valid-feedback"></div><div class="invalid-feedback"></div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-semibold">
-                                    <i class="fas fa-user me-1"></i>Nombre
-                                </label>
-                                <input type="text" class="form-control" name="firstName" placeholder="Tu nombre">
+                                <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>First Name</label>
+                                <input type="text" class="form-control" name="firstName" placeholder="Your first name">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-semibold">
-                                    <i class="fas fa-user me-1"></i>Apellido
-                                </label>
-                                <input type="text" class="form-control" name="lastName" placeholder="Tu apellido">
+                                <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>Last Name</label>
+                                <input type="text" class="form-control" name="lastName" placeholder="Your last name">
                             </div>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-lock me-1"></i>Contraseña
-                            </label>
-                            <input type="password" class="form-control" id="password" name="password" 
-                                   placeholder="Mínimo 6 caracteres" required minlength="6">
-                            <div class="form-text">Mínimo 6 caracteres</div>
+                            <label class="form-label fw-semibold"><i class="fas fa-lock me-1"></i>Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="At least 6 characters" required minlength="6">
+                            <div class="form-text">Minimum 6 characters</div>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">
-                                <i class="fas fa-lock me-1"></i>Confirmar Contraseña
-                            </label>
-                            <input type="password" class="form-control" id="confirmPassword" 
-                                   placeholder="Repite tu contraseña" required>
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback"></div>
+                            <label class="form-label fw-semibold"><i class="fas fa-lock me-1"></i>Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repeat your password" required>
+                            <div class="valid-feedback"></div><div class="invalid-feedback"></div>
                         </div>
                         
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success btn-lg btn-register" id="submitBtn">
-                                <i class="fas fa-user-plus me-2"></i>Crear Cuenta
-                            </button>
+                            <button type="submit" class="btn btn-success btn-lg btn-register" id="submitBtn"><i class="fas fa-user-plus me-2"></i>Create Account</button>
                         </div>
                     </form>
                     
                     <div class="text-center mt-4">
-                        <p class="text-muted">¿Ya tienes cuenta?</p>
-                        <a href="login" class="btn btn-outline-success">
-                            <i class="fas fa-sign-in-alt me-1"></i>Inicia Sesión
-                        </a>
+                        <p class="text-muted">Already have an account?</p>
+                        <a href="login" class="btn btn-outline-success">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -187,128 +104,59 @@
         const submitBtn = document.getElementById('submitBtn');
         const form = document.getElementById('registerForm');
         
-        let usernameValid = false;
-        let emailValid = false;
-        let passwordValid = false;
+        let usernameValid = false, emailValid = false, passwordValid = false;
         
-        // Validar username en tiempo real
-        let usernameTimeout;
         usernameInput.addEventListener('input', function() {
             clearTimeout(usernameTimeout);
-            if (this.value.length < 3) {
-                setFieldState(this, false, 'El usuario debe tener al menos 3 caracteres');
-                usernameValid = false;
-                return;
-            }
-            
+            if (this.value.length < 3) { setFieldState(this, false, 'Username must be at least 3 characters'); usernameValid = false; return; }
             this.classList.add('checking');
             usernameTimeout = setTimeout(() => {
-                fetch(`/api/v1/check/username?username=${encodeURIComponent(this.value)}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        this.classList.remove('checking');
-                        if (data.available) {
-                            setFieldState(this, true, 'Usuario disponible');
-                            usernameValid = true;
-                        } else {
-                            setFieldState(this, false, 'El nombre de usuario ya está en uso');
-                            usernameValid = false;
-                        }
-                    })
-                    .catch(() => {
-                        this.classList.remove('checking');
-                    });
+                fetch(`/api/v1/check/username?username=${encodeURIComponent(this.value)}`).then(res => res.json()).then(data => {
+                    this.classList.remove('checking');
+                    if (data.available) { setFieldState(this, true, 'Username available'); usernameValid = true; }
+                    else { setFieldState(this, false, 'Username already taken'); usernameValid = false; }
+                }).catch(() => { this.classList.remove('checking'); });
             }, 500);
         });
         
-        // Validar email en tiempo real
-        let emailTimeout;
         emailInput.addEventListener('input', function() {
             clearTimeout(emailTimeout);
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(this.value)) {
-                setFieldState(this, false, 'Ingresa un correo electrónico válido');
-                emailValid = false;
-                return;
-            }
-            
+            if (!emailRegex.test(this.value)) { setFieldState(this, false, 'Enter a valid email'); emailValid = false; return; }
             this.classList.add('checking');
             emailTimeout = setTimeout(() => {
-                fetch(`/api/v1/check/email?email=${encodeURIComponent(this.value)}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        this.classList.remove('checking');
-                        if (data.available) {
-                            setFieldState(this, true, 'Correo disponible');
-                            emailValid = true;
-                        } else {
-                            setFieldState(this, false, 'El correo electrónico ya está registrado');
-                            emailValid = false;
-                        }
-                    })
-                    .catch(() => {
-                        this.classList.remove('checking');
-                    });
+                fetch(`/api/v1/check/email?email=${encodeURIComponent(this.value)}`).then(res => res.json()).then(data => {
+                    this.classList.remove('checking');
+                    if (data.available) { setFieldState(this, true, 'Email available'); emailValid = true; }
+                    else { setFieldState(this, false, 'Email already registered'); emailValid = false; }
+                }).catch(() => { this.classList.remove('checking'); });
             }, 500);
         });
         
-        // Validar contraseña
         passwordInput.addEventListener('input', function() {
-            if (this.value.length >= 6) {
-                setFieldState(this, true, '');
-                passwordValid = true;
-            } else {
-                setFieldState(this, false, 'La contraseña debe tener al menos 6 caracteres');
-                passwordValid = false;
-            }
-            
-            // Revalidar confirmación
-            if (confirmPasswordInput.value) {
-                validateConfirmPassword();
-            }
+            if (this.value.length >= 6) { setFieldState(this, true, ''); passwordValid = true; }
+            else { setFieldState(this, false, 'Password must be at least 6 characters'); passwordValid = false; }
+            if (confirmPasswordInput.value) validateConfirmPassword();
         });
         
-        // Validar confirmación de contraseña
         confirmPasswordInput.addEventListener('input', validateConfirmPassword);
         
         function validateConfirmPassword() {
-            if (confirmPasswordInput.value === passwordInput.value && confirmPasswordInput.value.length > 0) {
-                setFieldState(confirmPasswordInput, true, 'Las contraseñas coinciden');
-            } else {
-                setFieldState(confirmPasswordInput, false, 'Las contraseñas no coinciden');
-            }
+            if (confirmPasswordInput.value === passwordInput.value && confirmPasswordInput.value.length > 0) setFieldState(confirmPasswordInput, true, 'Passwords match');
+            else setFieldState(confirmPasswordInput, false, 'Passwords do not match');
         }
         
         function setFieldState(input, isValid, message) {
             input.classList.remove('is-valid', 'is-invalid');
-            const feedback = input.parentElement.querySelector('.valid-feedback') || 
-                           input.parentElement.querySelector('.invalid-feedback');
-            
-            if (isValid) {
-                input.classList.add('is-valid');
-                if (feedback) feedback.className = 'valid-feedback', feedback.textContent = message;
-            } else if (input.value) {
-                input.classList.add('is-invalid');
-                if (feedback) feedback.className = 'invalid-feedback', feedback.textContent = message;
-            }
+            const feedback = input.parentElement.querySelector('.valid-feedback') || input.parentElement.querySelector('.invalid-feedback');
+            if (isValid) { input.classList.add('is-valid'); if (feedback) feedback.className = 'valid-feedback', feedback.textContent = message; }
+            else if (input.value) { input.classList.add('is-invalid'); if (feedback) feedback.className = 'invalid-feedback', feedback.textContent = message; }
         }
         
-        // Validar antes de enviar
         form.addEventListener('submit', function(e) {
-            if (!usernameValid || !emailValid || !passwordValid) {
-                e.preventDefault();
-                alert('Por favor, completa todos los campos correctamente');
-                return;
-            }
-            
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                e.preventDefault();
-                setFieldState(confirmPasswordInput, false, 'Las contraseñas no coinciden');
-                return;
-            }
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creando cuenta...';
+            if (!usernameValid || !emailValid || !passwordValid) { e.preventDefault(); alert('Please complete all fields correctly'); return; }
+            if (passwordInput.value !== confirmPasswordInput.value) { e.preventDefault(); setFieldState(confirmPasswordInput, false, 'Passwords do not match'); return; }
+            submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating account...';
         });
     </script>
 </body>
