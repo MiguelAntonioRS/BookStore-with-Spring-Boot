@@ -1,26 +1,15 @@
 <!doctype html>
-<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <title>Biblioteca - Libros Disponibles</title>
+    <title>BookStore - Available Books</title>
     <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        .table-container {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .table thead {
-            background: #343a40;
-            color: white;
-        }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .table-container { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .table thead { background: #343a40; color: white; }
     </style>
 </head>
 <body>
@@ -28,20 +17,20 @@
 
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold mb-0"><i class="fas fa-book-open text-primary me-2"></i>Libros Disponibles</h2>
-            <a href="book_register" class="btn btn-primary"><i class="fas fa-plus me-1"></i>Nuevo Libro</a>
+            <h2 class="fw-bold mb-0"><i class="fas fa-book-open text-primary me-2"></i>Available Books</h2>
+            <a href="book_register" class="btn btn-primary"><i class="fas fa-plus me-1"></i>New Book</a>
         </div>
-        <p class="text-muted">Explora nuestra colección completa de libros</p>
+        <p class="text-muted">Explore our complete book collection</p>
         
         <div class="table-container">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th><i class="fas fa-hashtag me-1"></i>Id</th>
-                        <th><i class="fas fa-book me-1"></i>Nombre</th>
-                        <th><i class="fas fa-user me-1"></i>Autor</th>
-                        <th><i class="fas fa-tag me-1"></i>Precio</th>
-                        <th><i class="fas fa-cog me-1"></i>Acciones</th>
+                        <th><i class="fas fa-book me-1"></i>Name</th>
+                        <th><i class="fas fa-user me-1"></i>Author</th>
+                        <th><i class="fas fa-tag me-1"></i>Price</th>
+                        <th><i class="fas fa-cog me-1"></i>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,12 +41,12 @@
                         <td th:text="${'$' + b.price}"></td>
                         <td>
                             <a class="btn btn-success btn-sm text-white me-1" th:href="@{/mylist/{id}(id=${b.id})}">
-                                <i class="fas fa-heart"></i> Agregar
+                                <i class="fas fa-heart"></i> Add
                             </a>
                             <a class="btn btn-info btn-sm text-white me-1" th:href="@{/editBook/{id}(id=${b.id})}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger btn-sm text-white" th:href="@{/deleteBook/{id}(id=${b.id})}" onclick="return confirm('¿Estás seguro de eliminar este libro?')">
+                            <a class="btn btn-danger btn-sm text-white" th:href="@{/deleteBook/{id}(id=${b.id})}" onclick="return confirm('Are you sure you want to delete this book?')">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -67,8 +56,8 @@
             
             <div th:if="${#lists.isEmpty(book)}" class="text-center py-5">
                 <i class="fas fa-book fa-4x text-muted mb-3"></i>
-                <p class="text-muted">No hay libros disponibles actualmente.</p>
-                <a href="book_register" class="btn btn-primary">Agregar Primer Libro</a>
+                <p class="text-muted">No books available yet.</p>
+                <a href="book_register" class="btn btn-primary">Add First Book</a>
             </div>
         </div>
     </div>
