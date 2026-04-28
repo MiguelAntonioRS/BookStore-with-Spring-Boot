@@ -35,4 +35,13 @@ public class BookService {
     public void deleteById(int id) {
         bookRepository.deleteById(id);
     }
+
+    public List<BookEntity> searchBooks(String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return bookRepository.findAll();
+        }
+        List<BookEntity> byName = bookRepository.findByNameContainingIgnoreCase(query);
+        byName.addAll(bookRepository.findByAuthorContainingIgnoreCase(query));
+        return byName.stream().distinct().toList();
+    }
 }
