@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
@@ -34,11 +35,17 @@ public class BookController {
     }
 
     @GetMapping("/available_books")
-    public ModelAndView getAllBooks() {
-        List<BookEntity> list = bookService.getAllBook();
+    public ModelAndView getAllBooks(@RequestParam(required = false) String search) {
+        List<BookEntity> list;
+        if (search != null && !search.trim().isEmpty()) {
+            list = bookService.searchBooks(search);
+        } else {
+            list = bookService.getAllBook();
+        }
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("bookList");
         modelAndView.addObject("book", list);
+        modelAndView.addObject("search", search != null ? search : "");
         return modelAndView;
     }
 
